@@ -1,4 +1,4 @@
-import pool from "./dbconfig/dbconnector";
+import pool from "../dbconfig/dbconnector";
 
 class TodosController {
     public async get(req, res) {

@@ -1,6 +1,6 @@
 import express, { Application, Router } from "express";
 import bodyParser from "body-parser";
-import todosRouter from "../routers/todosRouter";
+import todosRouter from "./routers/todosRouter";
 import pool from "./dbconfig/dbconnector";
 
 class Server {

@@ -1,8 +1,7 @@
 export interface BaseItem {
     name: string;
-    price: number;
-    description: string;
-    image: string;
+    email: string;
+    level: boolean;
 }
 
 export interface Item extends BaseItem {

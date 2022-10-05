@@ -10,7 +10,7 @@ class TodosController {
             const todos = rows;
 
             client.release();
-
+            console.log("hello! we're in!");
             res.send(todos);
         } catch (error) {
             res.status(400).send(error);

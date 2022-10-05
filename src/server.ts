@@ -2,7 +2,10 @@ import express, { Application, Router } from "express";
 import bodyParser from "body-parser";
 import todosRouter from "./routers/todosRouter";
 import pool from "./dbconfig/dbconnector";
+
 const db = require("./db");
+// const compression = require("compression");
+const path = require("path");
 
 class Server {
     private app;
@@ -12,11 +15,14 @@ class Server {
         this.config();
         this.routerConfig();
         this.dbConnect();
+        // this.routes();
     }
 
     private config() {
-        this.app.use(bodyParser.urlencoded({ extended: true }));
-        this.app.use(bodyParser.json({ limit: "1mb" })); // 100kb default
+        // this.app.use(compression());
+        this.app.use(bodyParser.json());
+        this.app.use(bodyParser.urlencoded({ extended: false }));
+        this.app.use(express.static(path.join(__dirname, "/public")));
     }
 
     private dbConnect() {
@@ -27,8 +33,16 @@ class Server {
     }
 
     private routerConfig() {
-        this.app.use("/todos", todosRouter);
+        this.app.use("/", todosRouter);
     }
+
+    // public routes() {
+    //     this.app.get("/", (res: any, req: any) => {
+    //         res.render("login", {
+    //             title: "LogIn",
+    //         });
+    //     });
+    // }
 
     public start = (port: number) => {
         return new Promise((resolve, reject) => {

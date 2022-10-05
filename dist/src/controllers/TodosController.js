@@ -18,7 +18,7 @@ class TodosController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const client = yield dbconnector_1.default.connect();
-                const sql = "SELECT * FROM todos";
+                const sql = "SELECT * FROM entwickler";
                 const { rows } = yield client.query(sql);
                 const todos = rows;
                 client.release();

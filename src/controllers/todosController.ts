@@ -5,7 +5,7 @@ class TodosController {
         try {
             const client = await pool.connect();
 
-            const sql = "SELECT * FROM todos";
+            const sql = "SELECT * FROM entwickler";
             const { rows } = await client.query(sql);
             const todos = rows;
 

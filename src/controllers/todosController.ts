@@ -16,6 +16,8 @@ class TodosController {
             res.status(400).send(error);
         }
     }
+
+    public async create(req, res) {}
 }
 
 export default TodosController;

@@ -22,7 +22,7 @@ class TodosController {
                 const { rows } = yield client.query(sql);
                 const todos = rows;
                 client.release();
-                console.log("hello!");
+                console.log("hello! we're in!");
                 res.send(todos);
             }
             catch (error) {

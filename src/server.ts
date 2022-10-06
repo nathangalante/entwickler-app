@@ -36,6 +36,20 @@ class Server {
         this.app.use("/", todosRouter);
     }
 
+    create = async (req: any, res: any) => {
+        const { name, email, level } = req.body;
+        db.insertDeveloper(name, email, level)
+            .then(() => {
+                console.log("this is body", req.body);
+            })
+            .catch((err) => {
+                console.log("error!", err);
+                res.render("error!!");
+            });
+    };
+
+    
+
     // public routes() {
     //     this.app.get("/", (res: any, req: any) => {
     //         res.render("login", {
